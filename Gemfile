@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.6.1'
 
 gem 'rails', github: "rails/rails"
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -26,6 +26,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
+
+# Bootstrap Gem
+gem 'bootstrap', '~> 4.3.1'
+
+# jQuery Gem
+gem 'jquery-rails'
+
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
