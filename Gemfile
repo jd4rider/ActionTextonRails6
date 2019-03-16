@@ -33,6 +33,9 @@ gem 'bootstrap', '~> 4.3.1'
 # jQuery Gem
 gem 'jquery-rails'
 
+# Devise
+gem 'devise'
+
 
 
 # Reduces boot times through caching; required in config/boot.rb

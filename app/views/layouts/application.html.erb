@@ -51,5 +51,24 @@
     </p>
   </div class='container'>
     <%= yield %>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>  
+    <script>
+    $(document).on('click', '.toggle-window', function(e) {
+      e.preventDefault();
+      var panel = $(this).parent().parent();
+      var messages_list = panel.find('.messages-list');
+        
+      panel.find('.card-body').toggle();
+      panel.attr('class', 'card text-white bg-light mb-3');
+
+      if (panel.find('.card-body').is(':visible')) {
+        var height = messages_list[0].scrollHeight;
+        messages_list.scrollTop(height);
+      }
+    });
+    </script>
   </body>
 </html>
