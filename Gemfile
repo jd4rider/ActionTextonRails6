@@ -14,6 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use development version of Webpacker
 gem 'webpacker', github: "rails/webpacker"
 # gem 'actiontext', github: 'rails/actiontext', require: 'action_text'
+gem 'actiontext', require: 'action_text'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'

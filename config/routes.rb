@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # root to: "posts#index"
   root 'home#index'
+  get '/blog', to: 'posts#index'
 
   resources :conversations, only: [:create] do
     member do
