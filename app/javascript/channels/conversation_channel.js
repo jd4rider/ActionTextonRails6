@@ -11,7 +11,27 @@ var conversation = consumer.subscriptions.create("ConversationChannel", {
 
   received(data) {
     var conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
-    conversation.find('.messages-list').find('ul').append(data['message']);
+
+    if (data['window'] !== undefined) {
+      var conversation_visible = conversation.is(':visible');
+
+      if (conversation_visible) {
+        var messages_visible = (conversation).find('.card-body').is(':visible');
+
+        if (!messages_visible) {
+          conversation.removeClass('bg-light').addClass('bg-success');
+        }
+        conversation.find('.messages-list').find('ul').append(data['message']);
+      }
+      else {
+        $('#conversations-list').append(data['window']);
+        conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
+        conversation.find('.card-body').toggle();
+      }
+    }
+    else {
+      conversation.find('ul').append(data['message']);
+    }
 
     var messages_list = conversation.find('.messages-list');
     var height = messages_list[0].scrollHeight;
